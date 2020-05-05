@@ -5,7 +5,7 @@ function sha1Encode(data) {
     return crypto.createHash('sha1').update(data).digest('hex');
 }
 
-module.exports.digestAuth = (request, response, next) => { //
+module.exports.digestAuth = (request, response, next) => { 
     const authorization = request.headers.authorization;
     const encoded = authorization.replace('Basic', '');
     const decoded = Buffer.from(encoded, 'base64').toString('utf8');
